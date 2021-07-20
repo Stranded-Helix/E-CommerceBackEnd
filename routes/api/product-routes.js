@@ -7,24 +7,24 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
-  try{
-    const productData = await Product.findAll({include: [Category,Tag]});
+  try {
+    const productData = await Product.findAll({ include: [Category, Tag] });
     res.status(200).json(productData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // get one product
 router.get('/:id', async (req, res) => {
   // find a single pasyncroduct by its `id`
   // be sure to include its associated Category and Tag data
-  try{
-    const productData = await Product.findByPk(req.params.id, {include: [Category,Tag]});
+  try {
+    const productData = await Product.findByPk(req.params.id, { include: [Category, Tag] });
     res.status(200).json(productData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // create new product
@@ -103,16 +103,16 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
-  try{
-      const productData = await Product.findByPk(req.params.id)
-      const productTagData = await ProductTag.destroy(
-        {where: { product_id : req.params.id}});
-      productData.destroy();
-      res.status(200).json(productData);
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
+  try {
+    const productData = await Product.findByPk(req.params.id)
+    const productTagData = await ProductTag.destroy(
+      { where: { product_id: req.params.id } });
+    productData.destroy();
+    res.status(200).json(productData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
