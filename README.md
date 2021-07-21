@@ -15,12 +15,15 @@
 git clone
 ## Contributing
 ***
-PR on Github
+Pull Request on Github
 ## License
 ***
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 MIT License
 
+#### Video
+***
+https://youtu.be/ufcdRSEWtrw
 
 #### Questions
 ***
